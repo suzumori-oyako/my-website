@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>親時間研究室｜The Sabbatical</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* SF・近未来感のあるフォント設定 */
+        @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&family=DotGothic16&family=Orbitron:wght@400;700&family=Noto+Sans+JP:wght@300;400;700&display=swap');
+        
+        :root {
+            --color-space-deep: #0B0E14;
+            --color-cosmic-sage: #7A8F84;
+            --color-starlight: #FAF9F6;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #4A4A4A;
+            background-color: var(--color-starlight);
+            line-height: 1.8;
+            overflow-x: hidden;
+            letter-spacing: 0.05em;
+        }
+
+        /* 廻想体のようなSF感を演出するクラス */
+        .font-sf {
+            font-family: 'Zen Dots', 'Orbitron', cursive;
+            letter-spacing: 0.1em;
+        }
+
+        .font-pixel {
+            font-family: 'DotGothic16', sans-serif;
+        }
+
+        /* スクロールアニメーション用クラス */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.2s cubic-bezier(0.25, 1, 0.5, 1), transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ヒーローセクションの背景 */
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(250, 249, 246, 0.85) 0%, rgba(223, 230, 226, 0.6) 100%), 
+                        url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?q=80&w=2000&auto=format&fit=crop') center/cover;
+            background-attachment: fixed;
+        }
+        
+        .text-sage { color: var(--color-cosmic-sage); }
+        .bg-sage { background-color: var(--color-cosmic-sage); }
+        .hover-bg-sage:hover { background-color: #63776D; }
+        .bg-sand { background-color: #EFECE6; }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* 時空のゆがみをイメージした装飾 */
+        .distortion-grid {
+            background-image: radial-gradient(var(--color-cosmic-sage) 0.5px, transparent 0.5px);
+            background-size: 30px 30px;
+            mask-image: radial-gradient(ellipse at center, black, transparent 80%);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- ナビゲーション -->
+    <header class="fixed w-full top-0 z-50 bg-[#FAF9F6]/80 backdrop-blur-md transition-all duration-300" id="header">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-bold tracking-tighter text-sage flex items-center gap-2">
+                <i data-lucide="orbit" class="w-6 h-6"></i>
+                <span class="font-sf text-base md:text-lg uppercase">The Sabbatical</span>
+            </div>
+            <a href="#contact" class="hidden md:inline-flex text-xs font-sf px-5 py-2 rounded-none border-2 border-[#7A8F84] text-[#7A8F84] hover:bg-[#7A8F84] hover:text-white transition-all duration-300">
+                INITIATE CONTACT
+            </a>
+        </div>
+    </header>
+
+    <!-- 1. ヒーローセクション -->
+    <section class="hero-bg min-h-screen flex items-center pt-20 relative">
+        <div class="absolute inset-0 distortion-grid opacity-20"></div>
+        <div class="max-w-5xl mx-auto px-6 py-20 w-full relative z-10">
+            <div class="max-w-3xl fade-in-up">
+                <p class="text-sage font-pixel text-sm md:text-base tracking-[0.2em] mb-6 border-l-4 border-sage pl-4 uppercase">
+                    Detection: Chronos Distortion
+                </p>
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-8">
+                    <span class="font-pixel block text-3xl md:text-4xl mb-4 text-sage">親になると、<br class="md:hidden">時空がゆがむ？！</span>
+                </h1>
+                
+                <div class="space-y-6 text-base md:text-lg text-gray-700 leading-relaxed mb-12 border-l border-gray-300 pl-6">
+                    <p>
+                        この世界は多元宇宙（マルチバース）。<br>
+                        「オギャー」という産声とともに、世界の親たちは<br class="hidden md:inline">
+                        別のユニバースへ吹き飛ばされるという。
+                    </p>
+                    <p>
+                        親という惑星は、子どもという未知の太陽を中心に周り始める。<br>
+                        親時間とは、その太陽系を支配する新しい時の流れである。
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-6">
+                    <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-sage text-white px-8 py-4 rounded-none font-sf text-sm tracking-widest hover-bg-sage transition-all duration-300 shadow-[4px_4px_0px_#4A5A52] hover:shadow-none transform hover:translate-x-1 hover:translate-y-1">
+                        ENTER THE SYSTEM
+                        <i data-lucide="zap" class="w-4 h-4"></i>
+                    </a>
+                    <div class="flex items-center gap-3 text-sage font-pixel text-xs tracking-tighter opacity-70">
+                        <span class="animate-pulse">●</span> ANALYZING TEMPORAL DATA...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. 共感セクション -->
+    <section class="py-24 md:py-32 bg-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-2xl md:text-4xl font-bold mb-4 text-sage font-pixel tracking-widest uppercase">System Alert: Signal Lost</h2>
+                <p class="text-sm text-gray-400 font-sf">こんな「時空のゆがみ」にもどかしさを感じていませんか？</p>
+                <div class="w-24 h-1 bg-sage mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- 悩みリスト -->
+                <div class="glass-panel rounded-none p-10 fade-in-up border-l-4 border-sage" style="transition-delay: 0.1s;">
+                    <ul class="space-y-8">
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="radio" class="w-6 h-6 text-sage shrink-0"></i>
+                            <p class="text-sm md:text-base">毎日が濃密に過ぎていくのに、うまく言葉にできず、体験が記録されないままブラックホールへ吸い込まれていく感覚。</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="cpu" class="w-6 h-6 text-sage shrink-0"></i>
+                            <p class="text-sm md:text-base">子育て期間がキャリアの「空白（Null）」のように感じられ、元の社会ユニバースから切り離されたような焦り。</p>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i data-lucide="sun" class="w-6 h-6 text-sage shrink-0"></i>
+                            <p class="text-sm md:text-base">未知の太陽（子ども）の強い引力に振り回され、親自身の心を整える余裕がない状態。</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex flex-col justify-center fade-in-up" style="transition-delay: 0.2s;">
+                    <p class="text-xl md:text-2xl font-bold leading-relaxed mb-6 font-pixel">
+                        孤独な漂流から、<br>「観測」という航海へ。
+                    </p>
+                    <p class="font-sans text-gray-600 leading-relaxed">
+                        「親時間研究室」は、広大な宇宙を漂いながら奮闘するママパパたちを一人にしません。子どもたちに振り回されることを愛する大人たちが集う観測基地です。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. 理解セクション -->
+    <section class="py-24 md:py-32 bg-sand border-y border-gray-200">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-sage font-sf text-xs tracking-[0.3em] uppercase mb-2 block">System Concept</span>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 font-pixel">未知の太陽系を、フィールドワークする</h2>
+                <div class="w-12 h-px bg-sage mx-auto"></div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12 items-center fade-in-up">
+                <div class="md:w-1/2 group relative">
+                    <div class="absolute -inset-2 bg-sage opacity-10 blur group-hover:opacity-20 transition duration-1000"></div>
+                    <img src="https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=1000&auto=format&fit=crop" 
+                         alt="宇宙のワークスペース" 
+                         class="relative rounded-none shadow-2xl object-cover h-[450px] w-full border border-white/20">
+                </div>
+                
+                <div class="md:w-1/2 space-y-8">
+                    <p class="text-xl font-bold font-pixel text-sage">
+                        「空白（Blank）」から<br>「研究（Research）」への転換。
+                    </p>
+                    <div class="text-gray-700 space-y-6">
+                        <p>
+                            日々の育児タスクを、単なるルーチンではなく「未知の生命体と新宇宙の観測」として捉え直します。理学的な視点をインストールすることで、あなたの日常は解像度を高め、価値あるデータへと変わります。
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 font-sf text-[10px] tracking-tighter opacity-60">
+                            <div class="border-t border-gray-400 pt-2">CORE_ENTITY: CHILD_SUN</div>
+                            <div class="border-t border-gray-400 pt-2">PROCESS: KNOWLEDGE_EXTRACTION</div>
+                            <div class="border-t border-gray-400 pt-2">STATUS: MULTIVERSE_STAY</div>
+                            <div class="border-t border-gray-400 pt-2">OUTPUT: SOCIAL_RECONNECT</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. 信頼セクション -->
+    <section class="py-24 md:py-32 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in-up">
+                <span class="text-sage font-sf text-xs tracking-[0.3em] uppercase mb-2 block">Founder Profile</span>
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 font-pixel">観測拠点・所長プロフィール</h2>
+                <div class="w-12 h-px bg-sage mx-auto"></div>
+            </div>
+
+            <!-- プロフィールカード -->
+            <div class="bg-gray-50 p-1 md:p-1 fade-in-up shadow-2xl">
+                <div class="bg-white p-8 md:p-12 border border-gray-100">
+                    <div class="flex flex-col lg:flex-row gap-12">
+                        <div class="lg:w-1/2">
+                            <div class="relative group overflow-hidden border-4 border-sage">
+                                <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1000&auto=format&fit=crop" 
+                                     alt="Cosmic Parenting Profile" 
+                                     class="w-full h-auto grayscale-0 group-hover:scale-105 transition-transform duration-700">
+                                <div class="absolute bottom-0 left-0 bg-sage text-white px-4 py-2 font-sf text-[10px]">THE_SABBATICAL_FOUNDER_IMAGE</div>
+                            </div>
+                            
+                            <!-- 設立の想いセクション -->
+                            <div class="mt-8 p-6 bg-sage/5 border border-sage/20 relative">
+                                <i data-lucide="quote" class="absolute top-4 left-4 w-8 h-8 text-sage opacity-20"></i>
+                                <h4 class="font-pixel text-sage text-xs mb-4 pl-8 uppercase tracking-widest">Core Motivation</h4>
+                                <div class="text-sm leading-relaxed text-gray-600 pl-8 space-y-4">
+                                    <p>「子育ての時間を、社会も個人も豊かにする時間として再評価される社会を作りたい。」</p>
+                                    <p>私自身、出産後、子どもと過ごす時間のなかで「毎日こんなに濃密なのに、この経験をうまく言葉にして人に伝えられない」というもどかしさを感じていました。</p>
+                                    <p>そのもどかしさこそが、新しい「知」の種であり、別宇宙からの貴重なシグナルであると信じています。</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="lg:w-1/2 space-y-6">
+                            <div class="border-b-2 border-sage pb-4">
+                                <p class="text-sage font-sf text-xs mb-1">CHIEF RESEARCHER / MOM EXPLORER</p>
+                                <h3 class="text-3xl font-bold font-pixel">鈴木ひかる</h3>
+                            </div>
+                            
+                            <div class="space-y-4 text-sm md:text-base text-gray-700 leading-relaxed">
+                                <p class="font-bold text-lg leading-tight">「子育てを、人類の叡智をアップデートする知的な冒険へ。」</p>
+                                <p>奈良女子大学で数物科学を専攻し、理学修士を取得。科学コミュニケーションのプロとして活動後、出産を機に「親である時間の価値」を再定義することを決意しました。</p>
+                                <p>科学的観察、ITエンジニア的な構造化、そして編集者としての言語化力。これらを統合し、孤独な軌道を回る育児を「豊かな研究」へと変える支援をしています。</p>
+                                
+                                <div class="bg-sand p-6 mt-6 border-l-4 border-sage">
+                                    <h4 class="font-pixel text-sage text-sm mb-4 uppercase tracking-widest">Specifications</h4>
+                                    <ul class="space-y-3 text-xs md:text-sm font-sans">
+                                        <li class="flex items-center gap-3">
+                                            <span class="w-1.5 h-1.5 bg-sage rounded-full"></span>
+                                            奈良女子大学大学院 人間文化研究科修了（理学修士）
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span class="w-1.5 h-1.5 bg-sage rounded-full"></span>
+                                            科学館等でのワークショップ企画・実施
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span class="w-1.5 h-1.5 bg-sage rounded-full"></span>
+                                            ITエンジニア / ライター・編集職 経験
+                                        </li>
+                                        <li class="flex items-center gap-3">
+                                            <span class="w-1.5 h-1.5 bg-sage rounded-full"></span>
+                                            独学で保育士資格取得、第一子育児中
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 行動セクション -->
+    <section id="contact" class="py-24 md:py-32 bg-[#0B0E14] text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20" 
+             style="background-image: radial-gradient(#7A8F84 1px, transparent 1px); background-size: 40px 40px;">
+        </div>
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-sage to-transparent"></div>
+        
+        <div class="max-w-3xl mx-auto px-6 relative z-10 fade-in-up">
+            <span class="font-sf text-sage text-xs tracking-[0.5em] mb-6 block">COMMUNICATION LINK</span>
+            <h2 class="text-2xl md:text-4xl font-bold mb-8 leading-tight font-pixel">
+                あなたの時空探索を、<br>ここから始めましょう。
+            </h2>
+            <p class="text-gray-400 mb-12 text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+                孤独に漂うための場所ではありません。<br>
+                共に問いを立て、この摩訶不思議な太陽系を解明する場所です。<br>
+                まずは、あなたの観測ステータスを教えてください。
+            </p>
+
+            <a href="#" class="group relative inline-flex items-center justify-center px-12 py-5 font-sf text-sm tracking-[0.2em] overflow-hidden">
+                <span class="absolute inset-0 w-full h-full bg-sage transition-all duration-300 group-hover:scale-110"></span>
+                <span class="relative text-white flex items-center gap-3">
+                    <i data-lucide="radio" class="w-4 h-4"></i>
+                    OPEN CHANNEL (FREE SESSION)
+                </span>
+            </a>
+            
+            <p class="font-pixel text-[10px] mt-8 text-gray-500 uppercase tracking-widest">
+                System online // awaiting explorer signal
+            </p>
+        </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="bg-white border-t border-gray-100 py-16 text-center">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-sage mb-6 flex justify-center items-center gap-3">
+                <i data-lucide="orbit" class="w-6 h-6"></i>
+                <span class="font-sf tracking-widest text-xl uppercase">The Sabbatical</span>
+            </div>
+            <p class="font-pixel text-xs text-gray-400 tracking-widest uppercase">Transforming parenting into structured knowledge</p>
+            
+            <div class="flex justify-center gap-8 font-sf text-[9px] text-gray-300 mt-10">
+                <a href="#" class="hover:text-sage transition-colors">LEGAL_NOTICE</a>
+                <a href="#" class="hover:text-sage transition-colors">PRIVACY_PROTOCOL</a>
+            </div>
+            
+            <p class="font-sf text-[8px] text-gray-300 mt-12 opacity-50">
+                EST 2026 // COGNITIVE EXPLORATION LAB
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-xl', 'py-2');
+                header.classList.remove('py-4');
+            } else {
+                header.classList.remove('shadow-xl', 'py-2');
+                header.classList.add('py-4');
+            }
+        });
+
+        const observerOptions = { threshold: 0.1 };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
